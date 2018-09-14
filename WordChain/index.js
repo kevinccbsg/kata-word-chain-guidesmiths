@@ -1,5 +1,7 @@
 const { promisify } = require('util');
 const fs = require('fs');
+const path = require('path');
+const WordGraph = require('../WordGraph');
 const readFileAsync = promisify(fs.readFile);
 
 const readFile = async (filePath) => 
@@ -12,12 +14,12 @@ class WordChain {
     this.option = 'file';
     this.startWord = startWord;
     this.endWord = endWord;
-    this.filePath = filePath || './../BBDD/wordlist.txt';
+    this.filePath = filePath || path.join(__dirname, '..', 'BBDD', 'wordlist.txt');
   }
 
   getChain() {
     const graph = new WordGraph(this.words);
-    return graph.findShortestPath(this.startWord, this.endWord)
+    return graph.findShortestPath(this.startWord, this.endWord);
   }
 
   async getWordList() {
@@ -42,10 +44,10 @@ class WordChain {
       const wordList = [];
       words.forEach((obj) => {
         if (obj.length === startWord.length) {
-          wordList.push(obj);
+          wordList.push(obj.toLowerCase());
         }
       });
-      this.words = wordlist;
+      this.words = wordList;
       return wordList;
     } catch (err) {
       throw err;

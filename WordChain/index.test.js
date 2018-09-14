@@ -16,4 +16,12 @@ describe('WordChain', () => {
     const words = await wordChain.loadWords();
     expect(words).toHaveLength(9);
   });
+
+  it('cat -> dog', async () => {
+    const catToDogChain = new WordChain('cat', 'dog', null);
+    const words = await catToDogChain.loadWords();
+    const result = catToDogChain.getChain();
+    const expected = ['cat', 'cod', 'dot', 'dog'];
+    expect(words).toHaveLength(expected);
+  });
 });
