@@ -1,7 +1,9 @@
 
 class WordGraph {
 
-    wordList = [];
+    constructor(){
+        this.wordList = [];    
+    }
 
     setWordList(wordList) {
         this.wordList = wordList;
@@ -15,7 +17,7 @@ class WordGraph {
     getNextWords(word) {
         let nextWords = [];
 
-        wordList.forEach(currWord => {
+        this.wordList.forEach(currWord => {
             if (this.getWordDiff(word, currWord) == 1) {
                 nextWords.push(currWord);
             }
