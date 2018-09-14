@@ -13,20 +13,26 @@ class WordGraph {
    * @param toWord The ending word in the path.
    * @return a List of words in the path given the precedessor data, or null if no path can be constructed.
    */
-  getPath(previous, fromWord, toWord) {
-    if (!previous[toWord]) {
-      return null;
-    }
+    getPath(previous, fromWord, toWord) {
+        
+/*         console.log(previous['dog']);
+        console.log(previous['cog']);
+        console.log(previous['cot']); */
 
-    let path = [];
-    let  word = toWord;
-    while (word !== fromWord) {
-      path.push(word);
-      word = previous[word];
-    }
+        if (!previous[toWord]) {
+            return null;
+        }
 
-    return path.reverse();
-  }
+        let path = [];
+        let word = toWord;
+        while (word !== fromWord) {
+            path.push(word);
+            word = previous[word];
+        }
+        path.push(fromWord);
+        
+        return path;
+    }
 
     /**
      * Finds the shortest path between two words using a breadth-first search of the graph.
@@ -41,14 +47,13 @@ class WordGraph {
         let previous = {};
 
         let queue = new Queue();
-        queue.addToTail(fromWord);
+        queue.addToHead(fromWord);
 
         let word = null;
         while (!queue.isEmpty()) {
-            word = queue.removeTail();
-
+            word = queue.removeHead();
             if (word !== toWord) {
-                
+
                 const nextWords = this.getNextWords(word);
 
                 nextWords.forEach(nextWord => {

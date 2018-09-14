@@ -22,6 +22,6 @@ describe('WordChain', () => {
     const words = await catToDogChain.loadWords();
     const result = catToDogChain.getChain();
     const expected = ['cat', 'cod', 'dot', 'dog'];
-    expect(words).toHaveLength(expected);
+    expect(result).toHaveLength(expected);
   });
 });
