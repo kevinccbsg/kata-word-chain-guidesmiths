@@ -1,0 +1,24 @@
+{
+  "name": "kata-word-chain-guidesmiths",
+  "version": "1.0.0",
+  "description": "",
+  "main": "loadWords.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinccbsg/kata-word-chain-guidesmiths.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinccbsg/kata-word-chain-guidesmiths/issues"
+  },
+  "homepage": "https://github.com/kevinccbsg/kata-word-chain-guidesmiths#readme"
+}
