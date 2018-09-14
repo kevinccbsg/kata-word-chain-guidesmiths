@@ -19,7 +19,7 @@ class WordChain {
 
   getChain() {
     const graph = new WordGraph(this.words);
-    return graph.findShortestPath(this.startWord, this.endWord);
+    return graph.findShortestPath(this.startWord, this.endWord).reverse();
   }
 
   async getWordList() {
